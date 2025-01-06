@@ -1,10 +1,36 @@
-import "./index.css"
+import "./index.css";
+import Body from "./components/Body";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./components/Error";
+import Browse from "./components/Browse";
+import Login from "./components/Login";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore"
 
 function App() {
+  // defining path for entire app
+  const routers = createBrowserRouter([
+    {
+      path: "/",
+      element: <Body />,
+      errorElement: <Error />,
+      children: [
+        {
+          path: "/",
+          element: <Login />
+        },
+        {
+          path: "/browse",
+          element: <Browse />
+        }
+      ]
+    }
+  ]);
   return (
-    <div className="text-3xl font-bold underline">
-      Hello world!
-    </div>
+    // redux store and react routing is done here
+    <Provider store={appStore}>
+      <RouterProvider router={routers}></RouterProvider>
+    </Provider>
   );
 }
 
