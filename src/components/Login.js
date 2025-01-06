@@ -3,14 +3,11 @@ import { Form } from "react-router-dom";
 import { validateLogin } from "../utils/valiate";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  updateProfile
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-
 const Login = () => {
-  const navigate = useNavigate(); // navigate object
-
   // for maintaining state of sign in and sign up
   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -20,7 +17,7 @@ const Login = () => {
   // reference of email and password field in form
   const email = useRef(null);
   const password = useRef(null);
-
+  const name = useRef(null);
   // When SignIn is clicked it changes state to SignUp --> isSignIn to false
   const handleToggle = () => {
     setIsSignIn(!isSignIn);
@@ -28,10 +25,9 @@ const Login = () => {
   // it takes email and password form the form using useRef and validate it
   const SubmitLogin = () => {
     const message = validateLogin(email.current.value, password.current.value); // only ref val can be taken from ref.current...
-    console.log(password.current.value);
     setErrorMessage(message);
     if (message != null) return; // if the email/password doesn't satify the specification it doesn't even call firebase
-
+    
     if (!isSignIn) {
       // Sign Up using email and password in firebase
       createUserWithEmailAndPassword(
@@ -39,14 +35,24 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
-        .then((userCredential) => {
-          navigate("/browse"); // after sign up navigating to browse page
+      .then((userCredential) => {
+        console.log(userCredential);
+        console.log(name.current.value)
+        updateProfile(userCredential.user, {
+          displayName: name.current.value,
+          photoURL: "https://ih1.redbubble.net/image.4220068610.5868/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg"
+        })
+        .then(() => {
+              console.log("displayname added")
+            })
+            .catch((error) => {
+              setErrorMessage(error.message)
+            });
         })
         .catch((error) => {
           const errorMsg = error.message;
           setErrorMessage(error.status + " " + errorMsg);
         });
-      
     } else {
       // Sign using email and password in firebase
       signInWithEmailAndPassword(
@@ -54,14 +60,11 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
-        .then((userCredential) => {
-          navigate("/browse"); // after sign in navigating to browse page
-        })
+        .then((userCredential) => {})
         .catch((error) => {
           const errorMsg = error.message;
           setErrorMessage(error.status + " " + errorMsg);
         });
-      
     }
   };
   return (
@@ -85,6 +88,7 @@ const Login = () => {
               type="text"
               placeholder="Full Name"
               className="px-2 py-4 rounded-md w-full my-4 mx-2 bg-gray-900 opacity-80"
+              ref ={name}
             />
           )}
 

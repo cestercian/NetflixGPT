@@ -9,12 +9,12 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/")
+        navigate("/");
       })
       .catch((error) => {});
   };
-  const selector = useSelector(store => (store.user));
-  console.log({...selector})
+  const selector = useSelector((store) => store.user);
+  // console.log({...selector})
   return (
     <div className=" absolute w-full bg-gradient-to-b from-black z-50 flex justify-between">
       {/* image of netflix logo */}
@@ -23,11 +23,17 @@ const Header = () => {
         alt="netflix-logo"
         className="w-48 ml-36 mt-4"
       />
-      {selector && <button
-        className="bg-red-600 rounded-md p-1 text-lg font-bold text-white items-center mx-16 my-6"
-        onClick={handleSignOut}>
-        Sign Out
-      </button>}
+      {selector && (
+        <div className="w-2/12 flex justify-center items-center">
+          <img src={selector.photoURL} className="w-16 h-16"/>
+          {/* {console.log(selector.photoURL)} */}
+          <button
+            className="bg-red-600 rounded-md p-1 text-lg font-bold text-white items-center mx-16 my-6 object-cover  "
+            onClick={handleSignOut}>
+            Sign Out
+          </button>
+        </div>
+      )}
     </div>
   );
 };
