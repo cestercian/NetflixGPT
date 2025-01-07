@@ -7,6 +7,7 @@ import {
   updateProfile
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { DEFAULT_USER_AVATAR } from "../utils/constants";
 const Login = () => {
   // for maintaining state of sign in and sign up
   const [isSignIn, setIsSignIn] = useState(true);
@@ -40,7 +41,7 @@ const Login = () => {
         console.log(name.current.value)
         updateProfile(userCredential.user, {
           displayName: name.current.value,
-          photoURL: "https://ih1.redbubble.net/image.4220068610.5868/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg"
+          photoURL: DEFAULT_USER_AVATAR
         })
         .then(() => {
               console.log("displayname added")

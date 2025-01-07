@@ -3,6 +3,7 @@ import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { NETFLIX_LOGO } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -19,16 +20,15 @@ const Header = () => {
     <div className=" absolute w-full bg-gradient-to-b from-black z-50 flex justify-between">
       {/* image of netflix logo */}
       <img
-        src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production/consent/87b6a5c0-0104-4e96-a291-092c11350111/01938dc4-59b3-7bbc-b635-c4131030e85f/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+        src={NETFLIX_LOGO}
         alt="netflix-logo"
-        className="w-48 ml-36 mt-4"
+        className="w-48 ml-10 mt-4"
       />
       {selector && (
         <div className="w-2/12 flex justify-center items-center">
-          <img src={selector.photoURL} className="w-16 h-16"/>
-          {/* {console.log(selector.photoURL)} */}
+          <img src={selector.photoURL} className="w-12 h-12 object-contain mr-2" alt="user_profile"/>
           <button
-            className="bg-red-600 rounded-md p-1 text-lg font-bold text-white items-center mx-16 my-6 object-cover  "
+            className="bg-red-600 rounded-md py-2 px-4 text-lg font-bold text-white items-center mr-1 my-6 object-cover bg-opacity-90  "
             onClick={handleSignOut}>
             Sign Out
           </button>
