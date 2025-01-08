@@ -9,7 +9,7 @@ const TrailerVideo = ({ id }) => {
   return (
     <div className="w-screen h-screen">
       <iframe
-        className="w-screen h-screen"
+        className="w-screen h-screen "
         src={
           "https://www.youtube.com/embed/" +
           videoKey +

@@ -10,7 +10,7 @@ const TrailerComponent = () => {
   // console.log(id)
   
   return (
-    <div className="relative">
+    <div className="relative -z-10">
       <TrailerTitle title={title} overview={overview} />
       <TrailerVideo id={id} />
     </div>
