@@ -148,6 +148,33 @@ const navigate = useNavigate();
 if(userSignedIn) navigate("/home");
 ```
 
-## OnAuthChange from firebase
+## OnAuthStateChange from firebase
 
 `onAuthStateChanged` is a Firebase Authentication method that listens for changes in the user's authentication state.
+
+- we need to keep it in a centerlized will be present in all case like body or header
+
+**Note:**
+
+onAuthstateChange() is like an event listener so we need to remove this when our component unmounts so we need to unsubscribe our onAuthStateChange.
+
+- to remove an event listener we need to return a function.
+
+```jsx
+useEffect(()=>{
+	const unsubscribe = onAuthStateChange()
+	
+	return ()=> unsubscribe;
+	},[])
+
+```
+
+React Strict Mode: 
+
+everything renders twice as react re-renders to check for consistency.
+
+this only happens for development not on production build.
+
+## Multi language support
+
+even for the text like search, signIn,signOut create it as a variable for several languages to obtain this

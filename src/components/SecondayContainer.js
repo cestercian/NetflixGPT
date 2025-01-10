@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import MovieCatergory from "./MovieCatergory";
 const SecondayContainer = () => {
   const selector = useSelector((store) => store.movies);
-  console.log(selector.nowPlayingMovies);
   return (
     <div className="z-10 ">
       <div className="-mt-28 z-20 bg-black">

@@ -7,7 +7,7 @@ import {
   updateProfile
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { DEFAULT_USER_AVATAR } from "../utils/constants";
+import { DEFAULT_USER_AVATAR, NETFLIX_BG, NETFLIX_LOGO } from "../utils/constants";
 const Login = () => {
   // for maintaining state of sign in and sign up
   const [isSignIn, setIsSignIn] = useState(true);
@@ -37,14 +37,11 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          console.log(userCredential);
-          console.log(name.current.value);
           updateProfile(userCredential.user, {
             displayName: name.current.value,
             photoURL: DEFAULT_USER_AVATAR
           })
             .then(() => {
-              console.log("displayname added");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -76,7 +73,7 @@ const Login = () => {
           {/* netflix background image */}
           <img 
             className="z-20 h-svh w-screen object-cover"
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/aa9edac4-a0e6-4f12-896e-32c518daec62/web/IN-en-20241223-TRIFECTA-perspective_1502c512-be5f-4f14-b21a-e3d75fe159ab_large.jpg"
+            src={NETFLIX_BG}
             alt="netflix-background"
           />
           {/* sign In/ sign Up form */}

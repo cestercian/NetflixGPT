@@ -7,7 +7,6 @@ const TrailerComponent = () => {
   if(selector === null) return;
   const featureVideo = selector[0];
   const {title,overview,id} = featureVideo; 
-  // console.log(id)
   
   return (
     <div className="relative -z-10">

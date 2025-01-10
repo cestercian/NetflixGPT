@@ -26,6 +26,11 @@ Episode 02:
 - Fetch data for Trailer Video
 - Update Store with Movie Data
 - Embedded the youtube video and make it autoplay and mute
+- Building secondary container
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- usePopularMovies,useTopRatedMovies,useUpcomingMovies Custom Hook
 
 // features
 - create TrailerContainer 
@@ -34,3 +39,10 @@ Episode 02:
 - create a Seconday Container
     - video catergory * n
         - videocard * n
+
+Episode 03
+- GPT component
+- GPT Search component
+- [*] create Multi-language support for GPT search Page
+ 
+1:24

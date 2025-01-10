@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import useFeatureVideo from "../Hooks/useFeatureVideo";
 
 const TrailerVideo = ({ id }) => {
-  // console.log(id);
   useFeatureVideo(id);
   const videoKey = useSelector((store) => store.movies.featureVideoKey);
 
