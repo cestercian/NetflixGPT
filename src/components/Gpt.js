@@ -1,11 +1,13 @@
 import { NETFLIX_BG } from "../utils/constants";
 import GPTSearchBar from "./GptSearchBar";
+import GPTRecommendation from "./GPTRecommendation";
 
 const Gpt = () => {
+  
   return (
-    <div className="">
-        <img alt="Netflix-bg" src={NETFLIX_BG} className=" absolute -z-10"/>
+    <div className="bg-black">
       <GPTSearchBar />
+      <GPTRecommendation/>
     </div>
   );
 };

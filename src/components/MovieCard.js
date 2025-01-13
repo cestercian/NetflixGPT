@@ -1,6 +1,7 @@
 import { IMG_CDN_URL } from "../utils/constants";
 
 const MovieCard = ({ title, poster_path }) => {
+  if(!poster_path) return;
   return (
     <div className="mr-4">
       <div className="w-56">
