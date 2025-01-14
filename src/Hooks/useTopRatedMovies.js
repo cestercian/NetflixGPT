@@ -16,7 +16,7 @@ const useTopRatedMovies = () => {
     dispatch(addTopRatedMovies(json.results));
   };
   useEffect(() => {
-    if (topRatedMovies) {
+    if (!topRatedMovies) {
       const unsubscribe = fetchNowPlaying();
       return () => unsubscribe;
     }

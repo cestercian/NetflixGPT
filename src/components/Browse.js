@@ -18,10 +18,10 @@ const Browse = () => {
       {showGpt ? (
         <Gpt />
       ) : (
-        <>
+        <div >
           <TrailerComponent />
           <SecondayContainer />
-        </>
+        </div>
       )}
     </div>
   );

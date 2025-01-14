@@ -36,9 +36,9 @@ const GPTSearchBar = () => {
           type="text"
           placeholder={lang[languageIdentifier].gptPlaceHolder}
           ref={query}
-          className="py-2 px-6 rounded-l-md text-lg w-96 focus:outline-none"
+          className="py-2 px-6 rounded-l-md text-md md:text-lg w-96 focus:outline-none"
         />
-        <button className="text-white bg-red-700 py-2 px-8 rounded-r-md text-lg hover:bg-red-600">
+        <button className="text-white bg-red-700 py-2 px-8 rounded-r-md text-md md:text-lg hover:bg-red-600">
           {lang[languageIdentifier].search}
         </button>
       </Form>

@@ -6,9 +6,9 @@ const TrailerVideo = ({ id }) => {
   const videoKey = useSelector((store) => store.movies.featureVideoKey);
 
   return (
-    <div className="w-screen h-screen">
+    <div className="md:w-screen md:h-screen">
       <iframe
-        className="w-screen h-screen "
+        className="w-screen h-screen -mt-52 md:mt-0 "
         src={
           "https://www.youtube.com/embed/" +
           videoKey +
