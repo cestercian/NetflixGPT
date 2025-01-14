@@ -9,8 +9,7 @@ export const OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMDM5NTQzMjYxZjY0MjcxMTI4NDBlOTY2Yzk4YTM0MyIsIm5iZiI6MTczNjIwODc3NS4xMjYwMDAyLCJzdWIiOiI2NzdjNzE4N2VjNTE3OTFkZmU2NjllNDkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.5U9Od48aQGBDC1eyT1ojJ4ML6nILSpRc-cVLfksGXqw"
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_API_KEY
   }
 };
 
@@ -30,10 +29,10 @@ export const schema = {
   items: {
     type: SchemaType.OBJECT,
     properties: {
-        name:{type: SchemaType.STRING},
-        year: {type: SchemaType.NUMBER},
-        primaryLanguage: {type: SchemaType.STRING},
-        adult:{type: SchemaType.BOOLEAN}
+      name: { type: SchemaType.STRING },
+      year: { type: SchemaType.NUMBER },
+      primaryLanguage: { type: SchemaType.STRING },
+      adult: { type: SchemaType.BOOLEAN }
     }
   }
 };

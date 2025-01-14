@@ -8,10 +8,15 @@ const useTopRatedMovies = () => {
   const dispatch = useDispatch();
   const topRatedMovies = useSelector((store) => store.movies.topRated);
   const fetchNowPlaying = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?page=1",
-      OPTIONS
-    );
+    let data;
+    try {
+      data = await fetch(
+        "https://api.themoviedb.org/3/movie/top_rated?page=1",
+        OPTIONS
+      );
+    } catch {
+      return;
+    }
     const json = await data.json();
     dispatch(addTopRatedMovies(json.results));
   };

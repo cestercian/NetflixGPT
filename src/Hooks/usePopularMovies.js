@@ -8,10 +8,17 @@ const usePopularMovies = () => {
   const dispatch = useDispatch();
   const popularMovies = useSelector((store) => store.movies.popularMovies);
   const fetchNowPlaying = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?page=1",
-      OPTIONS
-    );
+    let data;
+    try{
+      data = await fetch(
+        "https://api.themoviedb.org/3/movie/popular?page=1",
+        OPTIONS
+      );
+
+    }
+    catch{
+      return;
+    }
     const json = await data.json();
     dispatch(addPopularMovies(json.results));
   };

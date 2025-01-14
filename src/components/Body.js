@@ -1,6 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
 import { useEffect } from "react";
 import { onAuthStateChanged} from "firebase/auth";
 import { auth } from "../utils/firebase";

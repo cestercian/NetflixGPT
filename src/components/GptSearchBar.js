@@ -2,7 +2,7 @@ import { Form } from "react-router-dom";
 import { lang } from "../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
-import { addMoviesRecommendation } from "../utils/gptSlice";
+import { addMoviesRecommendation, changeSearchState } from "../utils/gptSlice";
 import { GPT_QUERY_NOTE, GPT_ROLE, schema } from "../utils/constants";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -12,6 +12,7 @@ const GPTSearchBar = () => {
   const dispatch = useDispatch();
 
   const gptSearchHandle = async () => {
+    dispatch(changeSearchState(2));
     console.log("searching...");
 
     const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GPT_KEY);
@@ -25,8 +26,17 @@ const GPTSearchBar = () => {
     const prompt = GPT_ROLE + query.current.value + GPT_QUERY_NOTE;
     const result = await model.generateContent(prompt);
     const movieData = result.response.text();
-    const movies = movieData ? await JSON.parse(movieData) : null;
+
+    let movies;
+    try{
+      movies= await JSON.parse(movieData);
+    }
+    catch{
+      console.log("error  occurred");
+      return;
+    }
     if (movies) dispatch(addMoviesRecommendation(movies));
+    
   };
 
   return (

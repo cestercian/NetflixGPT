@@ -33,7 +33,7 @@ const Header = () => {
       {/* image of netflix logo */}
       <div className="flex justify-center">
 
-      <img src={NETFLIX_LOGO} alt="netflix-logo" className="w-48 ml-10" />
+      <img src={NETFLIX_LOGO} alt="netflix-logo" className="w-48 md:ml-10" />
       </div>
       <div className="flex gap-2 mx-auto md:mx-4 md:w-auto h-[90%]">
         {selector && (

@@ -32,17 +32,11 @@ Episode 02:
 - TMDB Image CDN URL
 - usePopularMovies,useTopRatedMovies,useUpcomingMovies Custom Hook
 
-// features
-- create TrailerContainer 
-    - TrailerVideo Container
-    - TrailerTitle Container
-- create a Seconday Container
-    - video catergory * n
-        - videocard * n
-
 Episode 03
 - GPT component
 - GPT Search component
 - [*] create Multi-language support for GPT search Page
- 
+- Getting Gemini Ai api key
+- Adding gemini Ai for movie suggestion
+- Feature: Mobile and desktop responsive  
 1:24

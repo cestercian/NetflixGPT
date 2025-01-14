@@ -6,18 +6,26 @@ import { useEffect } from "react";
 const useFeatureVideo = (id) => {
   const dispatch = useDispatch();
   const fetchVideo = async () => {
-    const data = await fetch("https://api.themoviedb.org/3/movie/"+id+"/videos?",
-      OPTIONS
-    );
+    let data;
+    try {
+      data = await fetch(
+        "https://api.themoviedb.org/3/movie/" + id + "/videos?",
+        OPTIONS
+      );
+    } catch {
+      return;
+    }
     const json = await data.json();
-    const filteredData = json.results.filter(movie => movie.type ==="Trailer");
+    const filteredData = json.results.filter(
+      (movie) => movie.type === "Trailer"
+    );
     const featureVideo = filteredData ? filteredData[0] : json.results[0];
     dispatch(addFeatureVideoKey(featureVideo.key));
   };
 
   useEffect(() => {
     const fetchTrailer = fetchVideo();
-    return ()=> fetchTrailer;
+    return () => fetchTrailer;
   }, []);
 };
 

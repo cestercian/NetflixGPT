@@ -5,6 +5,7 @@ const gptSlice = createSlice({
   initialState: {
     gptPageToggle: false,
     MoviesRecommendation: null,
+    searchState:1,
   },
   reducers: {
     toggleGpt: (state, action) => {
@@ -12,9 +13,12 @@ const gptSlice = createSlice({
     },
     addMoviesRecommendation: (state, action) => {
       state.MoviesRecommendation = action.payload
+    },
+    changeSearchState:(state,action)=>{
+      state.searchState = action.payload;
     }
   }
 });
 
-export const { toggleGpt,addMoviesRecommendation } = gptSlice.actions;
+export const { toggleGpt,addMoviesRecommendation,changeSearchState } = gptSlice.actions;
 export default gptSlice.reducer;

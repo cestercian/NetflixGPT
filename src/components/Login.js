@@ -66,7 +66,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="relative">
+    <div className="relative w-full md:w-auto">
       <div className="w-full h-svh absolute z-30 bg-gradient-to bg-black bg-opacity-50 from-black"></div>
       <div className="w-full h-full z-10">
         <div className="relative ">
@@ -77,8 +77,8 @@ const Login = () => {
             alt="netflix-background"
           />
           {/* sign In/ sign Up form */}
-          <Form className="bg-black absolute w-[25%] px-10 py-10 text-white bg-opacity-80 left-[40%] top-[20%] rounded-lg m-auto z-40">
-            <h1 className="text-3xl font-bold mb-4 opacity px-2">
+          <Form className="bg-black absolute  md:w-[25%] px-5 md:px-10 py-10 text-white bg-opacity-80 md:left-[40%] top-[20%] rounded-lg m-auto z-40">
+            <h1 className="text-2xl md:text-3xl font-bold mb-4 opacity px-2">
               {isSignIn ? "Sign In" : "Sign Up"}
             </h1>
 
@@ -87,7 +87,7 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Full Name"
-                className="px-2 py-4 rounded-md w-full my-4 mx-2 bg-gray-600 bg-opacity-30"
+                className="px-2 py-3 md:py-4 rounded-md w-full my-4 mx-2 bg-gray-600 bg-opacity-30"
                 ref={name}
               />
             )}
@@ -97,7 +97,7 @@ const Login = () => {
               ref={email} // referencing the element
               type="text"
               placeholder="Email or mobile number"
-              className="px-4 py-4 rounded-md w-full my-4 mx-2 bg-gray-600 bg-opacity-30"
+              className="px-4 py-3 md:py-4 rounded-md w-full my-4 mx-2 bg-gray-600 bg-opacity-30"
             />
 
             {/* password field */}
@@ -105,19 +105,19 @@ const Login = () => {
               ref={password}
               type="password"
               placeholder="Password"
-              className="px-4 py-4 rounded-md w-full my-4 mx-2 bg-gray-600 bg-opacity-30"
+              className="px-4 py-3 md:py-4 rounded-md w-full my-4 mx-2 bg-gray-600 bg-opacity-30"
             />
             <p className="text-red-600 text-semibold text-md px-2">
               {errorMessage}
             </p>
             {/* toggle feature implemented here */}
             <button
-              className="bg-red-600 px-4 py-3 rounded-md w-full my-6 mx-2 bg-opacity-100 hover:bg-red-700"
+              className="bg-red-600 px-4 py-3 md:py-4 rounded-md w-full my-4 mx-2 bg-opacity-100 hover:bg-red-700"
               onClick={SubmitLogin}>
               {isSignIn ? "Sign In" : "Sign Up"}
             </button>
 
-            <p className="mx-2 my-6 text-lg font-light">
+            <p className="mx-2 md:my-6 text-md md:text-lg font-light">
               {isSignIn ? "New to Netflix?" : "Already have an account?"}
               <span
                 className="font-bold cursor-pointer hover:underline px-2"
